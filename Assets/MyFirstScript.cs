@@ -5,7 +5,7 @@ class MyFirstScript : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Hello World!");
+        Debug.Log("Hello Unity!");
     }
 
 
