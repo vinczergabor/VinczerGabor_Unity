@@ -15,15 +15,15 @@ class Gun : MonoBehaviour
     void OnValidate()
     {
         // This is a commment
-        /* This is a muléti-line comment */
+        /* This is a mulï¿½ti-line comment */
         /*
         Debug.Log("Hello Unity!");
         Debug.Log($"Hello {name}!"); // The $ signs that a variable is being called between {} marks
 
         int myFirstvariable = 12;
         */
-        // a % b = maradéka az osztásnak (modulo)
-        // int j = (float) a -> a zárójelezés a kasztolás, átalakítjuk a változót
+        // a % b = maradï¿½ka az osztï¿½snak (modulo)
+        // int j = (float) a -> a zï¿½rï¿½jelezï¿½s a kasztolï¿½s, ï¿½talakï¿½tjuk a vï¿½ltozï¿½t
 
         
 
@@ -32,7 +32,7 @@ class Gun : MonoBehaviour
         circumference = 2 * radius * Mathf.PI;
 
         area = radius * radius * Mathf.PI;  // gyorsabb
-        area = Mathf.Pow(radius, 2) * Mathf.PI; // általánosabb
+        area = Mathf.Pow(radius, 2) * Mathf.PI; // ï¿½ltalï¿½nosabb
     }
 
      void Update()
