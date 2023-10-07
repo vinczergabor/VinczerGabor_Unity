@@ -5,6 +5,7 @@ class PlayerMover : MonoBehaviour
     // [SerializeField] Vector3 velocity;
     [SerializeField] float speed = 10;
     [SerializeField] float angularSpeed = 300;
+    [SerializeField] Transform cameraTransform;
 
     void Update()
     {
@@ -17,11 +18,17 @@ class PlayerMover : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
-            //Vector3 velocity= Vector3.right * speed; <- a Vector3.right egy 1,0,0 értéket ad, ezt szorozzuk a speed értékével
-            Vector3 velocity = direction * speed;    
-            transform.position += velocity * Time.deltaTime; // a Time.deltaTime-al framerate függetlenné tettük (jelen esteben a mozgást)
 
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            Vector3 cameraDir = cameraTransform.TransformDirection(direction);
+            // nullazuk az y vektort, hogy ne mozogjon abba az iranyba a kamera mozgasnal
+            cameraDir.y = 0;
+            cameraDir.Normalize();
+
+            //Vector3 velocity= Vector3.right * speed; <- a Vector3.right egy 1,0,0 erteket ad, ezt szorozzuk a speed ertekevel
+            Vector3 velocity = cameraDir * speed;    
+            transform.position += velocity * Time.deltaTime; // a Time.deltaTime-al framerate függetlenné tettük (jelen esteben a mozgast)
+
+            Quaternion targetRotation = Quaternion.LookRotation(cameraDir);
             transform.rotation = Quaternion.RotateTowards (transform.rotation, targetRotation, angularSpeed * Time.deltaTime);
 
             // transform.rotation = Quaternion.LookRotation(direction);  <- a mozgás irányába fordul az object
