@@ -14,7 +14,7 @@ public class Palindrom : MonoBehaviour
 
         char[] characters = subject.ToCharArray();
 
-        for(int i = 0; i < characters.Length; i++)
+        for(int i = 0; i < characters.Length / 2; i++)
         {
             if (characters[i] != characters[characters.Length - 1 - i])
                 return false;

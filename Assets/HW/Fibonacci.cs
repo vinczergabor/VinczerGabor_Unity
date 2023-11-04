@@ -8,10 +8,10 @@ public class Fibonacci : MonoBehaviour
     {
         int[] result = new int[length];
 
-        if (length > 0)
+        if (length >= 0)
             result[0] = 0;
 
-        if (length > 1)
+        if (length >= 1)
             result[1] = 1;
 
         for (int i = 2; i < length; i++)
